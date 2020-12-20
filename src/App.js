@@ -1,3 +1,4 @@
+import Home from './pages/Home/Home';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 import './App.css';
@@ -11,7 +12,7 @@ function App() {
 
           {/* Home (the one with the search on) */}
           <Route path="/" exact>
-            <h1>Home</h1>
+            <Home />
           </Route>
 
           {/* SearchPage (The results page) */}
