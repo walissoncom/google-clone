@@ -29,3 +29,46 @@
 .searchResult__optionsRight {
     margin-left: 80px;
 }
+
+.searchResult__items {
+    max-width: 715px;
+    margin-top: 20px;
+    margin-left: 240px;
+    margin-bottom: 100px;
+}
+
+.searchResult__itemsCount {
+    color: #70757a;
+    font-size: 14px;
+}
+
+.searchResult__item {
+    margin: 40px 0;
+}
+
+.searchResult__itemLink {
+    display: flex;
+    align-items: center;
+    color: #202124;
+    text-decoration: none;
+}
+
+.searchResult__itemImage {
+    object-fit: contain;
+    height: 25px;
+    width: 25px;
+    margin-right: 10px;
+}
+
+.searchResult__itemTitle {
+    text-decoration: none;
+}
+
+.searchResult__itemTitle:hover {
+    text-decoration: underline;
+}
+
+.searchResult__itemTitle > h2 {
+    font-weight: 500;
+    margin: 10px 0;
+}

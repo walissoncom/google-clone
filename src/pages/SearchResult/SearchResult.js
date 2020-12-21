@@ -7,6 +7,7 @@ import ImageIcon from '@material-ui/icons/Image';
 import LocalOfferIcon from '@material-ui/icons/LocalOffer';
 import RoomIcon from '@material-ui/icons/Room';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
+import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 
 import useGoogleSearch from '../../hooks/useGoogleSearch/useGoogleSearch';
 import { useStateValue } from '../../StateContext';
@@ -20,8 +21,6 @@ function SearchResult() {
 
     const [{ term }, dispatch] = useStateValue();
     const { data } = useGoogleSearch(term); // LIVE API Call
-
-    console.log(data);
 
     return (
         <div className="searchResult">
@@ -50,9 +49,41 @@ function SearchResult() {
                 </div>
             </div>
 
-            <div className="searchResult__items">
+            {term && (
+                <div className="searchResult__items">
+                    <p className="searchResult__itemsCount">
+                        About {data?.searchInformation.formattedTotalResults} results
+                        ({data?.searchInformation.formattedSearchTime} seconds) for {term}
+                    </p>
 
-            </div>
+                    {data?.items.map(item => (
+                        <div className="searchResult__item" key={item.formattedUrl}>
+
+                            <a href={item.link} className="searchResult__itemLink">
+                                {item.pagemap?.cse_image?.length > 0 &&
+                                    item.pagemap?.cse_image[0]?.src && (
+                                        <img
+                                            className="searchResult__itemImage"
+                                            src={item.pagemap?.cse_image?.length > 0 && item.pagemap?.cse_image[0]?.src}
+                                            alt="Featured Visual" />
+                                    )
+                                }
+                                {item.displayLink}
+                                <ArrowDropDownIcon />
+                            </a>
+
+                            <a href={item.link} className="searchResult__itemTitle">
+                                <h2>{item.title}</h2>
+                            </a>
+
+                            <p className="searchResult__itemSnippet">
+                                {item.snippet}
+                            </p>
+
+                        </div>
+                    ))}
+                </div>
+            )}
         </div>
     )
 }
