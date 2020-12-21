@@ -1,0 +1,31 @@
+.searchResult__header {
+    display: flex;
+    position: sticky;
+    top: 0;
+    background-color: #FFF;
+    z-index: 100;
+    align-items: flex-start;
+    padding: 30px;
+    border-bottom: 1px solid lightgray;
+}
+
+.searchResult__logo {
+    object-fit: contain;
+    height: 50px;
+    margin-right: 50px;
+}
+
+.searchResult__headerBody > .search > .search__input {
+    margin-top: 0;
+    margin: unset;
+}
+
+.searchResult__options,
+.searchResult__optionsRight,
+.searchResult__optionsLeft {
+    display: flex;
+}
+
+.searchResult__optionsRight {
+    margin-left: 80px;
+}
